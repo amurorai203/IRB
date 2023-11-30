@@ -9,7 +9,7 @@ const searchHistoryItem = {
     criteria: [""]
 }
 
-const likedRecipe = {
+const RecipeItem = {
     datetime: "00:00",
     id: 0,
     title: "",
@@ -42,20 +42,24 @@ function saveRecipe(likedRecipe){
 function init(){
 
     loadHistory();
+    loadRecipe();
+
+}
+
+function addMockData(){
     var historyItem = Object.create(searchHistoryItem);
     historyItem.datetime = dayjs().format(datetformatter);
     historyItem.criteria = ["bread", "butter", "egg", "toast"];
     saveHistory(historyItem);
 
-    loadRecipe();
-    var LikeRecipeItem = Object.create(likedRecipe);
+    var LikeRecipeItem = Object.create(RecipeItem);
     LikeRecipeItem.datetime = dayjs().format(datetformatter);
-    LikeRecipeItem.id = 654959;
-    LikeRecipeItem.title = "Pasta With Tuna";
-    LikeRecipeItem.imageURL = "https://spoonacular.com/recipeImages/654959-312x231.jpg";
-    LikeRecipeItem.url = "https://api.spoonacular.com/recipes/654959/ingredientWidget.json?apiKey=";
+    LikeRecipeItem.id = 716429;
+    LikeRecipeItem.title = "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs";
+    LikeRecipeItem.imageURL = "https://spoonacular.com/recipeImages/716429-556x370.jpg";
+    LikeRecipeItem.url = "http://fullbellysisters.blogspot.com/2012/06/pasta-with-garlic-scallions-cauliflower.html";
     saveRecipe(LikeRecipeItem);
-
 }
 
-// init();
+init();
+addMockData();
