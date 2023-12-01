@@ -14,7 +14,7 @@
     />
   </head>
   <body>
-    <!-- Navbar
+     <!-- Navbar -->
     <div class="container">
       <nav class="navbar navbar-expand-lg bg-body-tertiary">
         <div class="container-fluid">
@@ -43,7 +43,30 @@
                       data-bs-toggle="dropdown"
                       aria-expanded="false"
                     >
-                      Dropdown link
+                    
+                    <!-- Pop up Window -->
+                    <div class="modal fade" id="promptModal" tabindex="-1" aria-labelledby="promptModalLabel" aria-hidden="true">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title">API Key</h5>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                          </div>
+                          <div class="modal-body">
+                              <label for="promptApi">Please enter your ApiKey:</label>
+                               <input type="text" class="form-control" id="promptApi">
+                           </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary">Save changes</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+
+
+                      <!-- Dropdown link -->
                     </a>
                     <ul class="dropdown-menu">
                       <li><a class="dropdown-item" href="#">Action</a></li>
@@ -80,13 +103,13 @@
 
     End of Navbar
 
-    <!-- Header -->
-    <!-- <h1>Interactive Recipe Book</h1> -->
+    Header
+    <h1>Interactive Recipe Book</h1>
 
-    <!-- End of Header -->
+    End of Header
 
-    <!-- Search bar & Buttons -->
-    <!-- <section class="container-fluid">
+    Search bar & Buttons
+    <section class="container-fluid"> 
       <div class="container mt-4">
         <form class="form-inline">
           <input class="form-control mr-sm-2" type="search" placeholder="Type an ingredient" aria-label="Search">
@@ -118,10 +141,10 @@
 
     <!-- End of Search & buttons -->
 
-    <!-- Recipe display -->
-    <!-- <section class="container-fluid">
-      <h2>Click a recipe to save it!</h2> -->
-      <!-- <div class="row">
+    Recipe display 
+     <section class="container-fluid">
+      <h2>Click a recipe to save it!</h2> 
+      <div class="row">
         <div class="col-sm-6">
           <div class="card bg-dark text-white rounded-circle">
             <img src="..." class="card-img" alt="...">
@@ -155,12 +178,12 @@
           </div>
         </div>
       </div>
-    </section> -->
+    </section> 
 
-    <!-- End of Recipe Display -->
+     <!-- End of Recipe Display -->
 
-    <!--  Recipe book -->
-    <!-- <section class="container-fluid">
+     <!-- Recipe book  -->
+     <section class="container-fluid">
       <h2>Recipe Book</h2>
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col">
@@ -213,19 +236,19 @@
           </li>
         </ul>
       </nav>
-    </section> -->
-    <!--  End of Recipe book -->
+    </section>
+     <!-- End of Recipe book -->
 
-    <!-- Footer -->
-    <!-- <div class="container">
+     <!-- Footer -->
+     <div class="container">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
           <a class="navbar-brand" href="#">Footer</a>
         </div>
       </nav> 
     </div>
-    End of Footer  -->
-    <!-- <script src="./././assets/js/logic.js"></script> -->
+    <!-- End of Footer  -->
+    <script src="./assets/js/logic.js"></script> 
     <script src="./assets/js/search.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>

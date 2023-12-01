@@ -1,16 +1,28 @@
-var apiKey = prompt('Enter your API key:');
+var apiKey ;//= prompt('Enter your API key:');
 var queryURL = "https://api.spoonacular.com/recipes/complexSearch";
 var apiUrl = "https://api.spoonacular.com/recipes/complexSearch?query=pasta"+"&includeNutrition=true"+"&apiKey="+apiKey;
+
+
+const promptApi = document.getElementById('promptApi');
+const submitButton = document.getElementById('submitButton');
+
+   submitButton.addEventListener('click', function () {
+     const userInput = promptApi.value;
+
+     console.log('User input:', userInput);
+   });
+
 
 function fetchRecipe() {
 
 
   console.log(apiUrl);
 
-  if (!apiKey) {
-    console.error('Please enter a valid API key');
-    return;
-  }
+   if (!apiKey) {
+     console.error('Please enter a valid API key');
+     return;
+     
+   }
 
   const headers = {
     'Authorization': `Bearer ${apiKey}`
