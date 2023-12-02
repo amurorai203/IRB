@@ -24,6 +24,38 @@ function displayRecipeResult(searchResult){
     }
 }
 
+function loadRecipeBook(){
+
+    var recipeBookElt = $("#recipeBook");
+
+    console.log(recipeBookElt);
+    for (let j=0; j<loadLikedList.length; j++){
+        var divColElt = $("<div>");
+        divColElt.addClass("col");
+        var divCardElt = $("<div>");
+        divCardElt.addClass("card");
+        var imgElt = $("<img>");
+        imgElt.addClass("card-img-top");
+        imgElt.attr("src", loadLikedList[j].imageURL);
+        divCardElt.append(imgElt);
+        var divCardBodyElt = $("<div>");
+        divCardBodyElt.addClass("card-body");
+        var h5Elt = $("<h5>");
+        h5Elt.addClass("card-body");
+        h5Elt.text(loadLikedList[j].title);
+        divCardBodyElt.append(h5Elt);
+        var pElt = $("<p>");
+        pElt.addClass("card-text");
+        pElt.text(loadLikedList[j].ingredients);
+        divCardBodyElt.append(pElt);
+        divCardElt.append(divCardBodyElt);
+        divColElt.append(divCardElt);
+        recipeBookElt.append(divColElt);
+    }
+
+}
+
 // This should be replaced by API searched result
 searchRecipeList = loadLikedList;
 displayRecipeResult(searchRecipeList);
+loadRecipeBook();

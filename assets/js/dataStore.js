@@ -14,7 +14,8 @@ const RecipeItem = {
     id: 0,
     title: "",
     imageURL: "",
-    URL: ""
+    URL: "",
+    ingredients: ""
 }
 
 function loadHistory(){
@@ -58,6 +59,7 @@ function addMockData(){
     LikeRecipeItem.title = "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs";
     LikeRecipeItem.imageURL = "https://spoonacular.com/recipeImages/716429-556x370.jpg";
     LikeRecipeItem.url = "http://fullbellysisters.blogspot.com/2012/06/pasta-with-garlic-scallions-cauliflower.html";
+    LikeRecipeItem.ingredients = "flour, green onions, non-fat milk, olive oil, onion, parmesan cheese, parsley, tubular pasta, peas";
     saveRecipe(LikeRecipeItem);
 }
 
