@@ -1,11 +1,13 @@
-// Heart button function
+// filters toggle
+const filterBtn = $('.filter-btn');
+const filterContainer = $('.filter-container');
 
-jQuery(function($) {
-    $('#swapHeart').on('click', function() {
-      var $el = $(this),
-        textNode = this.lastChild;
-      $el.find('span').toggleClass('glyphicon-heart glyphicon-heart-empty');
-      $el.toggleClass('swap');
-    });
-  });
+
+filterBtn.on('click', function () {
+  if (filterContainer.css('display') === 'none') {
+    filterContainer.css('display', 'flex');
+  } else {
+    filterContainer.css('display', 'none');
+  }
+});
 
