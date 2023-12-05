@@ -37,6 +37,49 @@
     margin:auto;
     }
 
+    .navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 1rem;
+    padding: 1rem;
+    background-color: transparent;
+    }
+
+    .navbar-brand {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    }
+
+    .navbar-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    }
+
+    .navbar h4 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color)!important;
+    }
+
+    .text-body-emphasis, .navbar-toggler {
+      color: black!important;
+    }
+
+    .fa {
+    font-size: 2rem;
+    }
+
+    .toggle-icon {
+    width: 2rem;
+    height: 2rem;
+
+    }
+
     h1 {
     font-size: 2rem;
     font-weight: 700;
@@ -47,7 +90,17 @@
     padding: 1rem;
     }
 
-    .search-container, .filter-container, h2, .recipe-container {
+    h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    align-items: center;  
+    margin: 1rem;
+    padding: 1rem;
+    }
+
+    .search-container, .filter-container, .recipe-container, .search-result, .header-container {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -57,7 +110,7 @@
     width: auto;
     }
     
-    .filter-container {
+    .filter-container, .recipe-container, .search-result {
       display: none;
     } 
 
@@ -124,7 +177,9 @@
     border-radius: 5px!important;
     text-decoration: none;
     text-align: center;
-    }
+    justify-content: center;
+    align-items: center; 
+      }
 
     .btn:hover {
     background-color: var(--primary-color);
@@ -138,6 +193,7 @@
     .btn-check {
     margin: auto 0.5rem;
     padding: 1rem;
+    position: relative;
     }
  
     .recipe-book-container {
