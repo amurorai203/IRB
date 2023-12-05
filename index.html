@@ -42,6 +42,29 @@
     
     <!-- End of Navbar -->
 
+    <!-- API modal -->
+    <div class="modal" tabindex="-1" id="myModal">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Modal title</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-input">
+            <input type="text" id="api-key" class="form-control" placeholder="Enter your API key" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            <button type="button" class="btn btn-primary save-btn" id="save-btn">Save changes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- End of API modal -->
+
+
     <!-- Header -->
     <section class="container-fluid header-container">
       <div class="container">
@@ -69,6 +92,7 @@
               type="search"
               placeholder="Type an ingredient"
               aria-label="Search"
+              id="search-input"
             />
         </div>
         <div class="col-sm-12 col-lg-4">
@@ -84,7 +108,7 @@
           </button>
         </div>
         <div class="col-lg-4">
-          <button class="btn btn-outline-success" type="button">
+          <button class="btn btn-outline-success reset-btn" type="button" id="reset-btn">
             Reset
           </button>
         </div>
@@ -96,7 +120,7 @@
     <!-- Filters -->
     <section class="container-fluid filter-container" id="filters">
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-sm- col-md-6 col-lg-12">
           <div
             class="btn-group"
             role="group"
@@ -137,7 +161,7 @@
               autocomplete="off"
             />
             <label class="btn btn-outline-primary" for="btncheck3"
-              >Low-carb</label
+              >Paleo</label
             >
 
             <input
@@ -168,19 +192,25 @@
     <!-- Recipe display -->
     <section class="container-fluid recipe-container">
       <div class="row recipe-container">
-        <div class="col-lg-12 recipe-card" id="searchResult">
+
+        <div class="col-lg-12 recipe-card">
+          <div class="card text-white" id="card0">
+
+
 
 
 
 
           <!-- <div class="card text-white">
+
             <img
               src="assets/images/placeholder-card.png"
               class="card-img rounded-circle"
               alt="..."
+              id="card-img0"
             />
             <div class="card-img-overlay">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title" id="title0">Card title</h5>
             </div>
             <div>
               <button type="button" class="btn">
@@ -188,14 +218,15 @@
               </button>
             </div>
           </div>
-          <div class="card">
+          <div class="card" id="card1">
             <img
               src="assets/images/placeholder-card.png"
               class="card-img rounded-circle"
               alt="..."
+              id="card-img1"
             />
             <div class="card-img-overlay">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title" id="title1">Card title</h5>
             </div>
             <div>
               <button type="button" class="btn">
@@ -203,14 +234,15 @@
               </button>
             </div>
           </div>
-          <div class="card text-white">
+          <div class="card text-white" id="card2">
             <img
               src="assets/images/placeholder-card.png"
               class="card-img rounded-circle"
               alt="..."
+              id="card-img2"
             />
             <div class="card-img-overlay">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title" id="title2">Card title</h5>
             </div>
             <div>
               <button type="button" class="btn">
@@ -218,14 +250,15 @@
               </button>
             </div>
           </div>
-          <div class="card text-white">
+          <div class="card text-white" id="card3">
             <img
               src="assets/images/placeholder-card.png"
               class="card-img rounded-circle"
               alt="..."
+              id="card-img3"
             />
             <div class="card-img-overlay">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title" id="title3">Card title</h5>
             </div>
             <div>
               <button type="button" class="btn">
@@ -234,15 +267,16 @@
             </div>
           </div>
 
+          <div class="card text-white" id="card4">
 
-          <div class="card text-white">
             <img
               src="assets/images/placeholder-card.png"
               class="card-img rounded-circle"
               alt="..."
+              id="card-img4"
             />
             <div class="card-img-overlay">
-              <h5 class="card-title">Card title</h5>
+              <h5 class="card-title" id="title4">Card title</h5>
             </div>
             <div>
               <button type="button" class="btn">
@@ -279,52 +313,10 @@
                 lead-in to additional content. This content is a little bit
                 longer.
               </p>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="card">
-            <img
-              src="assets/images/placeholder-card.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img
-              src="assets/images/placeholder-card.png"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content.
-              </p>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src="..." class="card-img-top" alt="..." />
-            <div class="card-body">
-              <h5 class="card-title">Card title</h5>
-              <p class="card-text">
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
-              </p>
+              <div>
+                <button type="button" class="btn btn-outline-danger">
+                  Remove
+                </button>
             </div>
           </div> -->
 
