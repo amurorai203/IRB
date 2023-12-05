@@ -1,9 +1,9 @@
 
+// API call
 
-
+var apiKey = localStorage.getItem('apiKey');
 function fetchRecipe(url) {
-    var apiKey = prompt('Enter your API key:');
-  
+    
     if (!apiKey) {
       console.error('Please enter a valid API key');
       return;
@@ -19,14 +19,10 @@ function fetchRecipe(url) {
       request.onload = function() {
         if (request.status === 200) {
             var data = JSON.parse(request.responseText);
-            console.log(data);
+            parseRecipes(data.results);
           } else {
             throw new Error(`Error fetching data: ${request.status}`);
           }
         };
         request.send();
       }
-
-      var apiUrl = "https://api.spoonacular.com/recipes/716429/information?apiKey="+apiKey +"&includeNutrition=true";
-
-      fetchRecipe();
