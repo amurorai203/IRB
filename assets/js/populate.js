@@ -11,13 +11,13 @@ function displayRecipeResult(searchResult){
         var divElt = $("<div>");
         divElt.addClass("card text-white");
         var imgElt = $("<img>");
-        imgElt.addClass("card-img rounded-circle");
+        imgElt.addClass("rounded-circle card-img" + i);
         imgElt.attr("src", searchResult[i].imageURL);
         divElt.append(imgElt);
         var divcardElt = $("<div>");
         divcardElt.addClass("card-img-overlay");
         var h5Elt = $("<h5>");
-        h5Elt.addClass("card-title");
+        h5Elt.addClass("card-title title" + i);
         h5Elt.text(searchResult[i].title);
         divcardElt.append(h5Elt);
         var divButtonElt = $("<div>");
@@ -37,7 +37,7 @@ function loadRecipeBook(){
     var storedLikedRecipes = JSON.parse(localStorage.getItem("savedLike"));
     loadLikedList = storedLikedRecipes;
 
-    console.log(storedLikedRecipes);
+    // console.log(storedLikedRecipes);
 
     if (storedLikedRecipes == null){
         return;
@@ -65,7 +65,7 @@ function loadRecipeBook(){
         divCardElt.append(divCardBodyElt);
         divColElt.append(divCardElt);
         recipeBookElt.append(divColElt);
-        console.log(storedLikedRecipes[j]);
+        // console.log(storedLikedRecipes[j]);
     }
 
 }
@@ -97,9 +97,13 @@ function invalidateLayout () {
     
     for (var i = 0; i < 5 ; i++) {
       var saveRecipeBtn = document.getElementById("like" + i);
-      if (loadLikedList && loadLikedList[i] === undefined) {
+      if (loadLikedList === null
+        //  && loadLikedList[i] === null
+        ) {
         break;
     }
+
+    if (saveRecipeBtn != null){
       saveRecipeBtn.onclick = () =>  {
         var recipe = loadLikedList[i];
         var LikeRecipeItem = Object.create(RecipeItem);
@@ -110,6 +114,7 @@ function invalidateLayout () {
         LikeRecipeItem.URL = recipe.sourceUrl;
         LikeRecipeItem.ingredients = recipe.extendedIngredients;
         saveRecipe(LikeRecipeItem);
+      }
       }
       if (i === 4) {
         break;

@@ -95,23 +95,19 @@ goBtn.on('click', function () {
 
 function parseRecipes(Recipes) {
   console.log(Recipes);
+  var searchResult = [];
+
   for (let i=0; i < Recipes.length; i++) {
     let recipe = Recipes[i];
-
-
-    if (recipe !== undefined) {
-      let recipeTitle = document.getElementById("title" + i);
-      let recipeImage = document.getElementById("card-img" + i);
-
-      recipeTitle.innerHTML = recipe.title;
-      recipeImage.src = recipe.image;
-    }
-
-    if (i === 4) {
-      break;
-    }
-
+    var searchRecipe = Object.create(RecipeItem);
+    searchRecipe.id = Recipes[i].id;
+    searchRecipe.title = Recipes[i].title;
+    searchRecipe.imageURL = Recipes[i].image;
+    searchRecipe.URL = "https://spoonacular.com/" + Recipes[i].title.replace(" ", "-") + "-" + Recipes[i].id;
+    // console.log(searchRecipe.URL);
+    searchResult.push(searchRecipe);
   }
+  displayRecipeResult(searchResult);
 }
 
 // Save recipe button to local storage
