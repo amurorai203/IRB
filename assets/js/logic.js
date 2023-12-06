@@ -3,13 +3,15 @@
 let goBtn = $('.go-btn');
 let searchResult = $('.search-result');
 let recipeContainer = $('.recipe-container');
-
-
-// Call modal
-
+var loadLikedList;
 var modal = document.getElementById("myModal");
 var btn = document.getElementById("reset-btn");
 var span = document.getElementsByClassName("close")[0];
+var saveBtn = document.getElementById("save-btn");
+
+// Call modal
+
+
 
 // When user clicks button, open modal
 btn.onclick = function() {
@@ -18,7 +20,7 @@ btn.onclick = function() {
 
 
 // Save button for modal
-var saveBtn = document.getElementById("save-btn");
+
 saveBtn.onclick = function() {
   localStorage.setItem('apiKey', document.getElementById('api-key').value);
   modal.style.display = "none";
@@ -59,6 +61,8 @@ goBtn.on('click', function () {
   request += "&query=" + document.getElementById("search-input").value;
   var filters = [];
   
+
+  //filter logic
   if (document.getElementById("btncheck0").checked) {
     filters.push("Gluten Free");
   }
@@ -87,7 +91,7 @@ goBtn.on('click', function () {
 });
 
 
-// 
+// parsing recipes into recipe display
 
 function parseRecipes(Recipes) {
   console.log(Recipes);
@@ -110,4 +114,7 @@ function parseRecipes(Recipes) {
   }
 }
 
-// Save recipe button
+// Save recipe button to local storage
+
+
+

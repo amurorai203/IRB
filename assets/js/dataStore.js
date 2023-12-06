@@ -38,6 +38,7 @@ function loadRecipe(){
 function saveRecipe(likedRecipe){
     loadLikedList.push(likedRecipe);
     localStorage.setItem(dataStoreLikedList, JSON.stringify(loadLikedList));
+    console.log(loadLikedList);
 }
 
 function init(){
@@ -46,6 +47,27 @@ function init(){
     loadRecipe();
 
 }
+
+
+// function addMockData(){
+//     var historyItem = Object.create(searchHistoryItem);
+//     historyItem.datetime = dayjs().format(datetformatter);
+//     historyItem.criteria = ["bread", "butter", "egg", "toast"];
+//     saveHistory(historyItem);
+
+//     var LikeRecipeItem = Object.create(RecipeItem);
+//     LikeRecipeItem.datetime = dayjs().format(datetformatter);
+//     LikeRecipeItem.id = 716429;
+//     LikeRecipeItem.title = "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs";
+//     LikeRecipeItem.imageURL = "https://spoonacular.com/recipeImages/716429-556x370.jpg";
+//     LikeRecipeItem.url = "http://fullbellysisters.blogspot.com/2012/06/pasta-with-garlic-scallions-cauliflower.html";
+//     LikeRecipeItem.ingredients = "flour, green onions, non-fat milk, olive oil, onion, parmesan cheese, parsley, tubular pasta, peas";
+//     saveRecipe(LikeRecipeItem);
+// }
+
+init();
+// addMockData();
+
 
 function addMockData(){
     // var historyItem = Object.create(searchHistoryItem);
@@ -66,6 +88,11 @@ function addMockData(){
     // LikeRecipeItem.url = "http://fullbellysisters.blogspot.com/2012/06/pasta-with-garlic-scallions-cauliflower.html";
     // LikeRecipeItem.ingredients = "flour, green onions, non-fat milk, olive oil, onion, parmesan cheese, parsley, tubular pasta, peas";
     // saveRecipe(LikeRecipeItem);
+// function addMockData(){
+//     var historyItem = Object.create(searchHistoryItem);
+//     historyItem.datetime = dayjs().format(datetformatter);
+//     historyItem.criteria = ["bread", "butter", "egg", "toast"];
+//     saveHistory(historyItem);
 
     var LikeRecipeItem = Object.create(RecipeItem);
     LikeRecipeItem.datetime = dayjs().format(datetformatter);
