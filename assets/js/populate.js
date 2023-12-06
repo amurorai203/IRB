@@ -6,7 +6,7 @@ var loadLikedList;
 function displayRecipeResult(searchResult){
 
     var searchListContainerElt = $("#searchResult");
-
+    searchListContainerElt.empty();
     for (let i=0; i<displaySearchLimit && i < searchResult.length; i++){
         var divElt = $("<div>");
         divElt.addClass("card text-white");
@@ -24,6 +24,7 @@ function displayRecipeResult(searchResult){
         var buttonElt = $("<button>");
         buttonElt.addClass("btn");
         buttonElt.text("Click to like");
+        buttonElt.attr("id", "like" + i);
         divButtonElt.append(buttonElt);
         divcardElt.append(divButtonElt);
         divElt.append(divcardElt);
@@ -104,17 +105,17 @@ function invalidateLayout () {
     }
 
     if (saveRecipeBtn != null){
-      saveRecipeBtn.onclick = () =>  {
-        var recipe = loadLikedList[i];
-        var LikeRecipeItem = Object.create(RecipeItem);
-        LikeRecipeItem.datetime = dayjs().format(datetformatter);
-        LikeRecipeItem.id = recipe.id;
-        LikeRecipeItem.title = recipe.title;
-        LikeRecipeItem.imageURL = recipe.image;
-        LikeRecipeItem.URL = recipe.sourceUrl;
-        LikeRecipeItem.ingredients = recipe.extendedIngredients;
-        saveRecipe(LikeRecipeItem);
-      }
+        saveRecipeBtn.onclick = () =>  {
+            var recipe = loadLikedList[i];
+            var LikeRecipeItem = Object.create(RecipeItem);
+            LikeRecipeItem.datetime = dayjs().format(datetformatter);
+            LikeRecipeItem.id = recipe.id;
+            LikeRecipeItem.title = recipe.title;
+            LikeRecipeItem.imageURL = recipe.image;
+            LikeRecipeItem.URL = recipe.sourceUrl;
+            LikeRecipeItem.ingredients = recipe.extendedIngredients;
+            saveRecipe(LikeRecipeItem);
+        }
       }
       if (i === 4) {
         break;

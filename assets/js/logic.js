@@ -108,6 +108,7 @@ function parseRecipes(Recipes) {
     searchResult.push(searchRecipe);
   }
   displayRecipeResult(searchResult);
+  registerEventListeners();
 }
 
 // Save recipe button to local storage
