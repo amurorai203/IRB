@@ -4,7 +4,7 @@
 var apiKey = localStorage.getItem('apiKey');
 function fetchRecipe(url) {
     
-    if (!apiKey) {
+    if (apiKey.length < 32 || apiKey == null) {
       console.error('Please enter a valid API key');
       return;
     }
