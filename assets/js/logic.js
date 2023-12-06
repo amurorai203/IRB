@@ -113,5 +113,5 @@ function parseRecipes(Recipes) {
 
 // Save recipe button to local storage
 
-
+// delete button to remove the parent container of recipe card
 
