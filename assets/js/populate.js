@@ -10,12 +10,15 @@ function displayRecipeResult(searchResult){
     searchListContainerElt.empty();
     for (let i=0; i<displaySearchLimit && i < searchResult.length; i++){
         var divElt = $("<div>");
-        divElt.addClass("card");
+        divElt.addClass("card text-white");
+        var aElt = $("<a>");
+        aElt.attr("href", searchResult[i].URL);
+        aElt.attr("target", "_blank");
         var imgElt = $("<img>");
         imgElt.addClass("rounded-circle card-img" + i);
         imgElt.attr("src", searchResult[i].imageURL);
-        imgElt.attr("href", searchResult[i].URL);
-        divElt.append(imgElt);
+        aElt.append(imgElt);
+        divElt.append(aElt);
         var divcardElt = $("<div>");
         divcardElt.addClass("card-img-overlay");
         var h5Elt = $("<h5>");
