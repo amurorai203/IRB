@@ -56,10 +56,14 @@ function loadRecipeBook(){
         divColElt.addClass("col-lg-12");
         var divCardElt = $("<div>");
         divCardElt.addClass("card recipe-book-card");
+        var aElt = $("<a>");
+        aElt.attr("href", storedLikedRecipes[j].URL);
+        aElt.attr("target", "_blank");
         var imgElt = $("<img>");
         imgElt.addClass("card-img-top");
         imgElt.attr("src", storedLikedRecipes[j].imageURL);
-        divCardElt.append(imgElt);
+        aElt.append(imgElt);
+        divCardElt.append(aElt);
         var divCardBodyElt = $("<div>");
         divCardBodyElt.addClass("card-body");
         var h5Elt = $("<h5>");
@@ -138,16 +142,20 @@ function invalidateLayout () {
               LikeRecipeItem.ingredients = recipe.extendedIngredients;
               saveRecipe(LikeRecipeItem);
               loadRecipeBook();
+              registerEventListeners(loadLikedList, "L");
           }
         }
       } else {
         
-        // dislike button logic
         var dislikeButton = document.getElementById("dislike" + i);
         if (dislikeButton != null){
           dislikeButton.onclick = () =>  {
+            console.log("Trigger dislike " + i);
+            // Dislike logic 
             var dislikeID = event.srcElement.id.substr(7);
+            console.log(dislikeID);
             var storedLikedRecipes = JSON.parse(localStorage.getItem("savedLike"));
+            console.log(storedLikedRecipes[dislikeID]);
             for (var i=0; storedLikedRecipes.length; i++){
               if (storedLikedRecipes[i].id == storedLikedRecipes[dislikeID].id){
                 storedLikedRecipes.splice(i, 1);
@@ -162,5 +170,5 @@ function invalidateLayout () {
       }
     }
   }
-  
+
   generateLayout();
