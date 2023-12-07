@@ -203,3 +203,22 @@
     align-items: center;
     border: var(--primary-color) 1px solid;;
     }
+
+    #saved-recipes-container {
+    display: flex;
+    flex-direction: column!important;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    }
+
+    .recipe-book-card {
+    display: flex;
+    flex-direction: space-between;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--primary-color);
+    
+    }
