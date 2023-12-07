@@ -10,7 +10,7 @@ function displayRecipeResult(searchResult){
     searchListContainerElt.empty();
     for (let i=0; i<displaySearchLimit && i < searchResult.length; i++){
         var divElt = $("<div>");
-        divElt.addClass("card text-white");
+        divElt.addClass("card");
         var imgElt = $("<img>");
         imgElt.addClass("rounded-circle card-img" + i);
         imgElt.attr("src", searchResult[i].imageURL);
@@ -25,7 +25,7 @@ function displayRecipeResult(searchResult){
         divcardElt.append(h5Elt);
         var divButtonElt = $("<div>");
         var buttonElt = $("<button>");
-        buttonElt.addClass("btn");
+        buttonElt.addClass("btn btn-primary btn-sm");
         buttonElt.text("Click to like");
         buttonElt.attr("id", "like" + i);
         divButtonElt.append(buttonElt);
@@ -144,7 +144,7 @@ function invalidateLayout () {
           saveRecipeBtn.onclick = () =>  {
             console.log("Trigger dislike " + i);
             // Dislike logic 
-
+            
 
           }
         }
