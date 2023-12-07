@@ -214,6 +214,25 @@
     }
 
 
+    #saved-recipes-container {
+    display: flex;
+    flex-direction: column!important;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    }
+
+    .recipe-book-card {
+    display: flex;
+    flex-direction: space-between;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid var(--primary-color);
+    
+
+
   .footer-container {
     background: transparent!important;
     display: flex;
@@ -228,4 +247,5 @@
     font-size: 1rem;
     font-weight: 700;
     color: var(--primary-color)!important;
+
     }
