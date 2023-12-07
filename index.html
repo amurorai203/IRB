@@ -21,8 +21,8 @@
             <div class="collapse" id="navbarToggleExternalContent" data-bs-theme="dark">
               <div class=" p-4">
                 <a href="#search-result"><h5 class="text-body-emphasis h4">Recipe Display</h5></a>
-                <h5 class="text-body-emphasis h4">Recipe Book</h5>
-                <h5 class="text-body-emphasis h4">About</h5>
+                <a href="#recipe-book"><h5 class="text-body-emphasis h4">Recipe Book</h5></a>
+                <a href="#footer"><h5 class="text-body-emphasis h4">About</h5></a>
               </div>
             </div>
             <nav class="navbar navbar-dark ">
@@ -30,9 +30,6 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="fa fa-bars toggle-icon"></span>
                 </button>
-              </div>
-            </nav>
-                </div>
               </div>
             </nav>
           </div>
@@ -194,97 +191,7 @@
       <div class="row recipe-container">
 
         <div class="col-lg-12 recipe-card">
-          <div class="card text-white" id="searchResult">
-
-
-
-
-
-
-          <!-- <div class="card text-white">
-
-            <img
-              src="assets/images/placeholder-card.png"
-              class="card-img rounded-circle"
-              alt="..."
-              id="card-img0"
-            />
-            <div class="card-img-overlay">
-              <h5 class="card-title" id="title0">Card title</h5>
-            </div>
-            <div>
-              <button type="button" class="btn" id="like0">
-                Click to like
-              </button>
-            </div>
-          </div>
-          <div class="card" id="card1">
-            <img
-              src="assets/images/placeholder-card.png"
-              class="card-img rounded-circle"
-              alt="..."
-              id="card-img1"
-            />
-            <div class="card-img-overlay">
-              <h5 class="card-title" id="title1">Card title</h5>
-            </div>
-            <div>
-              <button type="button" class="btn" id="like1">
-                Click to like
-              </button>
-            </div>
-          </div>
-          <div class="card text-white" id="card2">
-            <img
-              src="assets/images/placeholder-card.png"
-              class="card-img rounded-circle"
-              alt="..."
-              id="card-img2"
-            />
-            <div class="card-img-overlay">
-              <h5 class="card-title" id="title2">Card title</h5>
-            </div>
-            <div>
-              <button type="button" class="btn" id="like2">
-                Click to like
-              </button>
-            </div>
-          </div>
-          <div class="card text-white" id="card3">
-            <img
-              src="assets/images/placeholder-card.png"
-              class="card-img rounded-circle"
-              alt="..."
-              id="card-img3"
-            />
-            <div class="card-img-overlay">
-              <h5 class="card-title" id="title3">Card title</h5>
-            </div>
-            <div>
-              <button type="button" class="btn" id="like3">
-                Click to like
-              </button>
-            </div>
-          </div>
-
-          <div class="card text-white" id="card4">
-
-            <img
-              src="assets/images/placeholder-card.png"
-              class="card-img rounded-circle"
-              alt="..."
-              id="card-img4"
-            />
-            <div class="card-img-overlay">
-              <h5 class="card-title" id="title4">Card title</h5>
-            </div>
-            <div>
-              <button type="button" class="btn" id="like4">
-                Click to like
-              </button>
-            </div>
-          </div> -->
-
+          <div class="card" id="searchResult"></div>
         </div>
       </div>
     </section>
@@ -295,7 +202,7 @@
     <br />
 
     <!--  Recipe book -->
-    <section class="container-fluid recipe-book-container">
+    <section class="container-fluid recipe-book-container" id="recipe-book">
       <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col-lg-4" id="saved-recipes-container">
           <div class="card">
@@ -316,9 +223,7 @@
                   Remove
                 </button>
             </div>
-          </div> 
-
-
+          </div>
         </div>
       </div>
     </section>
@@ -345,10 +250,10 @@
 
     <!-- Footer -->
     <br />
-    <div class="container">
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="#">Footer</a>
+    <div class="container" id="footer">
+      <nav class="navbar">
+        <div class="container-fluid footer-container">
+          <a class="navbar-brand footer-text" href="#">© Andy Lai, Igor Coimbra, Martin Kosel</a>
         </div>
       </nav>
     </div>
