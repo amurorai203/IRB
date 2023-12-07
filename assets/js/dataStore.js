@@ -36,6 +36,9 @@ function loadRecipe(){
 }
 
 function saveRecipe(likedRecipe){
+    if (loadLikedList == null){
+        loadLikedList = [];
+    }
     loadLikedList.push(likedRecipe);
     localStorage.setItem(dataStoreLikedList, JSON.stringify(loadLikedList));
     console.log(loadLikedList);
