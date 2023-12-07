@@ -79,7 +79,7 @@ function loadRecipeBook(){
 
         var divButtonElt = $("<div>");
         var buttonElt = $("<button>");
-        buttonElt.addClass("btn");
+        buttonElt.addClass("btn btn-danger btn-sm");
         buttonElt.text("Click to dislike");
         buttonElt.attr("id", "dislike" + j);
         divButtonElt.append(buttonElt);

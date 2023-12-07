@@ -8,9 +8,17 @@ var modal = document.getElementById("myModal");
 var btn = document.getElementById("reset-btn");
 var span = document.getElementsByClassName("close")[0];
 var saveBtn = document.getElementById("save-btn");
+var closeBtn = document.getElementById("btn-close");
 
 // Call modal
 
+onload = function() {
+  modal.style.display = "block";
+  if (localStorage.getItem('apiKey') !== null) {
+    modal.style.display = "none";
+    document.getElementById('api-key').value = localStorage.getItem('apiKey');
+  }
+}
 
 
 // When user clicks button, open modal
@@ -18,6 +26,12 @@ btn.onclick = function() {
   modal.style.display = "block";
 }
 
+
+
+// Close button for modal
+closeBtn.onclick = function() {
+  modal.style.display = "none";
+}
 
 // Save button for modal
 
