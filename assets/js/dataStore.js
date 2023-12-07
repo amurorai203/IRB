@@ -4,11 +4,13 @@ var datetformatter = "YYYYMMDDHHmmss";
 var loadedHistory = JSON.parse(localStorage.getItem(dataStoreHistory));
 var loadLikedList = JSON.parse(localStorage.getItem(dataStoreLikedList));
 
+// variable to save the search history
 const searchHistoryItem = {
     datetime: "00:00",
     criteria: [""]
 }
 
+// variable to save one recipe item
 const RecipeItem = {
     datetime: "00:00",
     id: 0,
@@ -18,32 +20,40 @@ const RecipeItem = {
     ingredients: ""
 }
 
+// function to load the search history
+
 function loadHistory(){
     if (loadedHistory == null){
         loadedHistory = [];
     }
 }
 
+
+// function to save the search history
 function saveHistory(saveItem){
     loadedHistory.push(saveItem);
     localStorage.setItem(dataStoreHistory, JSON.stringify(loadedHistory));
 }
 
+
+// function to load the recipe book
 function loadRecipe(){
     if (loadLikedList == null){
         loadLikedList = [];
     }
 }
 
+// function to save the recipe book
 function saveRecipe(likedRecipe){
     if (loadLikedList == null){
         loadLikedList = [];
     }
     loadLikedList.push(likedRecipe);
     localStorage.setItem(dataStoreLikedList, JSON.stringify(loadLikedList));
-    console.log(loadLikedList);
+    
 }
 
+// function to invalidate layout
 function init(){
 
     loadHistory();
@@ -51,61 +61,5 @@ function init(){
 
 }
 
-
-// function addMockData(){
-//     var historyItem = Object.create(searchHistoryItem);
-//     historyItem.datetime = dayjs().format(datetformatter);
-//     historyItem.criteria = ["bread", "butter", "egg", "toast"];
-//     saveHistory(historyItem);
-
-//     var LikeRecipeItem = Object.create(RecipeItem);
-//     LikeRecipeItem.datetime = dayjs().format(datetformatter);
-//     LikeRecipeItem.id = 716429;
-//     LikeRecipeItem.title = "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs";
-//     LikeRecipeItem.imageURL = "https://spoonacular.com/recipeImages/716429-556x370.jpg";
-//     LikeRecipeItem.url = "http://fullbellysisters.blogspot.com/2012/06/pasta-with-garlic-scallions-cauliflower.html";
-//     LikeRecipeItem.ingredients = "flour, green onions, non-fat milk, olive oil, onion, parmesan cheese, parsley, tubular pasta, peas";
-//     saveRecipe(LikeRecipeItem);
-// }
-
 init();
-// addMockData();
 
-
-function addMockData(){
-    // var historyItem = Object.create(searchHistoryItem);
-    // historyItem.datetime = dayjs().format(datetformatter);
-    // historyItem.criteria = ["bread", "butter", "egg", "toast"];
-    // saveHistory(historyItem);
-
-    var historyItem = Object.create(searchHistoryItem);
-    historyItem.datetime = dayjs().format(datetformatter);
-    historyItem.criteria = ["fish", "lemon"];
-    saveHistory(historyItem);
-
-    // var LikeRecipeItem = Object.create(RecipeItem);
-    // LikeRecipeItem.datetime = dayjs().format(datetformatter);
-    // LikeRecipeItem.id = 716429;
-    // LikeRecipeItem.title = "Pasta with Garlic, Scallions, Cauliflower & Breadcrumbs";
-    // LikeRecipeItem.imageURL = "https://spoonacular.com/recipeImages/716429-556x370.jpg";
-    // LikeRecipeItem.url = "http://fullbellysisters.blogspot.com/2012/06/pasta-with-garlic-scallions-cauliflower.html";
-    // LikeRecipeItem.ingredients = "flour, green onions, non-fat milk, olive oil, onion, parmesan cheese, parsley, tubular pasta, peas";
-    // saveRecipe(LikeRecipeItem);
-// function addMockData(){
-//     var historyItem = Object.create(searchHistoryItem);
-//     historyItem.datetime = dayjs().format(datetformatter);
-//     historyItem.criteria = ["bread", "butter", "egg", "toast"];
-//     saveHistory(historyItem);
-
-    var LikeRecipeItem = Object.create(RecipeItem);
-    LikeRecipeItem.datetime = dayjs().format(datetformatter);
-    LikeRecipeItem.id = 665527;
-    LikeRecipeItem.title = "Yellow Squash Noodles with Tomato Basil Sauce";
-    LikeRecipeItem.imageURL = "https://spoonacular.com/recipeImages/665527-312x231.jpg";
-    LikeRecipeItem.url = "https://www.foodista.com/recipe/PTQSXRCL/yellow-squash-noodles-with-tomato-basil-sauce";
-    LikeRecipeItem.ingredients = "squash noodles, olive oil, roma tomatoes, garlic, sun-dried tomatoes, basil leaves";
-    saveRecipe(LikeRecipeItem);
-}
-
-init();
-// addMockData();

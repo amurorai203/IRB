@@ -3,7 +3,7 @@ var displaySearchLimit = 5;
 var loadLikedList;
 var displayDatetimeFormat = "D[th] MMMM, YYYY";
 
-
+// displays the recipe search result
 function displayRecipeResult(searchResult){
 
     var searchListContainerElt = $("#searchResult");
@@ -38,14 +38,14 @@ function displayRecipeResult(searchResult){
     }
 }
 
+// displays the recipe book
+
 function loadRecipeBook(){
 
     var recipeBookElt = $("#saved-recipes-container");
     recipeBookElt.empty();
     var storedLikedRecipes = JSON.parse(localStorage.getItem("savedLike"));
     loadLikedList = storedLikedRecipes;
-
-    // console.log(storedLikedRecipes);
 
     if (storedLikedRecipes == null){
         return;
@@ -90,12 +90,11 @@ function loadRecipeBook(){
         divCardElt.append(divCardBodyElt);
         divColElt.append(divCardElt);
         recipeBookElt.append(divColElt);
-        // console.log(storedLikedRecipes[j]);
     }
 
 }
 
-// This should be replaced by API searched result
+// function to save the search history
 searchRecipeList = JSON.parse(localStorage.getItem(dataStoreLikedList));
 
 if (searchRecipeList != null){
@@ -103,20 +102,21 @@ if (searchRecipeList != null){
 }
 loadRecipeBook();
 
-
+// function to invalidate layout
 function invalidateLayout () {
     var recipeContainer = document.getElementById("saved-recipes-container");
     recipeContainer.innerHTML = "";
   }
-  
+
+// function to generate layout
   function generateLayout () {
     loadLikedList = JSON.parse(localStorage.getItem("savedLike"));
     invalidateLayout();
     loadRecipeBook();
     registerEventListeners(loadLikedList, "L");
-    // console.log(loadLikedList);
   }
 
+// function to register event listeners
 
   function registerEventListeners (inList, inType) {
 
@@ -142,15 +142,12 @@ function invalidateLayout () {
         }
       } else {
         
+        // dislike button logic
         var dislikeButton = document.getElementById("dislike" + i);
         if (dislikeButton != null){
           dislikeButton.onclick = () =>  {
-            console.log("Trigger dislike " + i);
-            // Dislike logic 
             var dislikeID = event.srcElement.id.substr(7);
-            console.log(dislikeID);
             var storedLikedRecipes = JSON.parse(localStorage.getItem("savedLike"));
-            console.log(storedLikedRecipes[dislikeID]);
             for (var i=0; storedLikedRecipes.length; i++){
               if (storedLikedRecipes[i].id == storedLikedRecipes[dislikeID].id){
                 storedLikedRecipes.splice(i, 1);
