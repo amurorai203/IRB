@@ -35,6 +35,7 @@ function displayRecipeResult(searchResult){
 function loadRecipeBook(){
 
     var recipeBookElt = $("#saved-recipes-container");
+    recipeBookElt.empty();
     var storedLikedRecipes = JSON.parse(localStorage.getItem("savedLike"));
     loadLikedList = storedLikedRecipes;
 
@@ -63,6 +64,13 @@ function loadRecipeBook(){
         pElt.addClass("card-text");
         pElt.text(storedLikedRecipes[j].ingredients);
         divCardBodyElt.append(pElt);
+        var divButtonElt = $("<div>");
+        var buttonElt = $("<button>");
+        buttonElt.addClass("btn");
+        buttonElt.text("Click to dislike");
+        buttonElt.attr("id", "dislike" + j);
+        divButtonElt.append(buttonElt);
+        divCardElt.append(divButtonElt);
         divCardElt.append(divCardBodyElt);
         divColElt.append(divCardElt);
         recipeBookElt.append(divColElt);
@@ -89,38 +97,46 @@ function invalidateLayout () {
     loadLikedList = JSON.parse(localStorage.getItem("savedLike"));
     invalidateLayout();
     loadRecipeBook();
-    registerEventListeners();
+    registerEventListeners(loadLikedList, "L");
     console.log(loadLikedList);
   }
 
 
-  function registerEventListeners () {
-    
-    for (var i = 0; i < 5 ; i++) {
-      var saveRecipeBtn = document.getElementById("like" + i);
-      if (loadLikedList === null
-        //  && loadLikedList[i] === null
-        ) {
-        break;
-    }
+  function registerEventListeners (inList, inType) {
 
-    if (saveRecipeBtn != null){
-        saveRecipeBtn.onclick = () =>  {
-            var recipe = loadLikedList[i];
-            var LikeRecipeItem = Object.create(RecipeItem);
-            LikeRecipeItem.datetime = dayjs().format(datetformatter);
-            LikeRecipeItem.id = recipe.id;
-            LikeRecipeItem.title = recipe.title;
-            LikeRecipeItem.imageURL = recipe.image;
-            LikeRecipeItem.URL = recipe.sourceUrl;
-            LikeRecipeItem.ingredients = recipe.extendedIngredients;
-            saveRecipe(LikeRecipeItem);
+  if (inList != null) {
+
+    for (var i = 0; i < inList.length ; i++) {
+      if (inType == "S"){
+        var saveRecipeBtn = document.getElementById("like" + i);
+        if (saveRecipeBtn != null){
+          saveRecipeBtn.onclick = (event) =>  {
+            var likeID = event.srcElement.id.substr(4);
+              var recipe = inList[likeID];
+              var LikeRecipeItem = Object.create(RecipeItem);
+              LikeRecipeItem.datetime = dayjs().format(datetformatter);
+              LikeRecipeItem.id = recipe.id;
+              LikeRecipeItem.title = recipe.title;
+              LikeRecipeItem.imageURL = recipe.imageURL;
+              LikeRecipeItem.URL = recipe.URL;
+              LikeRecipeItem.ingredients = recipe.extendedIngredients;
+              saveRecipe(LikeRecipeItem);
+              loadRecipeBook();
+          }
         }
-      }
-      if (i === 4) {
-        break;
+      } else{
+        var saveRecipeBtn = document.getElementById("dislike" + i);
+        if (saveRecipeBtn != null){
+          saveRecipeBtn.onclick = () =>  {
+            console.log("Trigger dislike " + i);
+            // Dislike logic 
+
+
+          }
+        }
       }
     }
   }
+}
   
   generateLayout();
