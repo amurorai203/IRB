@@ -42,8 +42,3 @@ https://i.postimg.cc/s2nkTcz9/dislike-button.png
 Distributed under the MIT License. See LICENSE.txt for more information.
 
 
-# Contact
-
-Andy Lai - +44 123456789
-Igor Coimbra +44 456789132
-Martin Kosel +44 789456123
