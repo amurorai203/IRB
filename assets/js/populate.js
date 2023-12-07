@@ -14,7 +14,6 @@ function displayRecipeResult(searchResult){
         var imgElt = $("<img>");
         imgElt.addClass("rounded-circle card-img" + i);
         imgElt.attr("src", searchResult[i].imageURL);
-        divElt.append(imgElt);
         imgElt.attr("href", searchResult[i].URL);
         divElt.append(imgElt);
         var divcardElt = $("<div>");
@@ -51,9 +50,9 @@ function loadRecipeBook(){
 
     for (let j=0; j<storedLikedRecipes.length; j++){
         var divColElt = $("<div>");
-        divColElt.addClass("col");
+        divColElt.addClass("col-lg-12");
         var divCardElt = $("<div>");
-        divCardElt.addClass("card");
+        divCardElt.addClass("card recipe-book-card");
         var imgElt = $("<img>");
         imgElt.addClass("card-img-top");
         imgElt.attr("src", storedLikedRecipes[j].imageURL);
@@ -138,19 +137,30 @@ function invalidateLayout () {
               loadRecipeBook();
           }
         }
-      } else{
-        var saveRecipeBtn = document.getElementById("dislike" + i);
-        if (saveRecipeBtn != null){
-          saveRecipeBtn.onclick = () =>  {
+      } else {
+        
+        var dislikeButton = document.getElementById("dislike" + i);
+        if (dislikeButton != null){
+          dislikeButton.onclick = () =>  {
             console.log("Trigger dislike " + i);
             // Dislike logic 
-            
-
+            var dislikeID = event.srcElement.id.substr(7);
+            console.log(dislikeID);
+            var storedLikedRecipes = JSON.parse(localStorage.getItem("savedLike"));
+            console.log(storedLikedRecipes[dislikeID]);
+            for (var i=0; storedLikedRecipes.length; i++){
+              if (storedLikedRecipes[i].id == storedLikedRecipes[dislikeID].id){
+                storedLikedRecipes.splice(i, 1);
+                localStorage.setItem("savedLike", JSON.stringify(storedLikedRecipes));
+                generateLayout();
+                break;
+              }
+            }
+          }
           }
         }
       }
     }
   }
-}
   
   generateLayout();
