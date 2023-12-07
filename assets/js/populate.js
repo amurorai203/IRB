@@ -1,6 +1,7 @@
 var searchRecipeList = [];
 var displaySearchLimit = 5;
 var loadLikedList;
+var displayDatetimeFormat = "D[th] MMMM, YYYY";
 
 
 function displayRecipeResult(searchResult){
@@ -13,6 +14,7 @@ function displayRecipeResult(searchResult){
         var imgElt = $("<img>");
         imgElt.addClass("rounded-circle card-img" + i);
         imgElt.attr("src", searchResult[i].imageURL);
+        imgElt.attr("href", searchResult[i].URL);
         divElt.append(imgElt);
         var divcardElt = $("<div>");
         divcardElt.addClass("card-img-overlay");
@@ -29,6 +31,7 @@ function displayRecipeResult(searchResult){
         divcardElt.append(divButtonElt);
         divElt.append(divcardElt);
         searchListContainerElt.append(divElt);
+        
     }
 }
 
@@ -64,6 +67,16 @@ function loadRecipeBook(){
         pElt.addClass("card-text");
         pElt.text(storedLikedRecipes[j].ingredients);
         divCardBodyElt.append(pElt);
+
+        var saveAtElt = $("<h5>");
+        saveAtElt.text("Saved at:");
+        divCardBodyElt.append(saveAtElt);
+
+        var timeElt = $("<h6>");
+        timeElt.addClass("card-time");
+        timeElt.text(dayjs(storedLikedRecipes.datetime).format(displayDatetimeFormat));
+        divCardBodyElt.append(timeElt);
+
         var divButtonElt = $("<div>");
         var buttonElt = $("<button>");
         buttonElt.addClass("btn");
@@ -98,7 +111,7 @@ function invalidateLayout () {
     invalidateLayout();
     loadRecipeBook();
     registerEventListeners(loadLikedList, "L");
-    console.log(loadLikedList);
+    // console.log(loadLikedList);
   }
 
 

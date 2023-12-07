@@ -114,6 +114,10 @@
       display: none;
     } 
 
+    .filter-container {
+      flex-wrap: wrap;
+    }
+
     .card {
     display: flex;
     flex-direction: space-between;
@@ -195,6 +199,11 @@
     padding: 1rem;
     position: relative;
     }
+
+    .btn-group {
+      display: flex;
+      flex-wrap: wrap;
+    }
  
     .recipe-book-container {
     display: flex;
@@ -203,6 +212,7 @@
     align-items: center;
     border: var(--primary-color) 1px solid;;
     }
+
 
     #saved-recipes-container {
     display: flex;
@@ -221,4 +231,21 @@
     padding: 1rem;
     border: 1px solid var(--primary-color);
     
+
+
+  .footer-container {
+    background: transparent!important;
+    display: flex;
+    flex-direction: left;
+    justify-content: left;
+    align-items: left;
+    margin: 1rem;
+    padding: 1rem;
+    }
+
+  .footer-text {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--primary-color)!important;
+
     }
