@@ -14,7 +14,6 @@ function displayRecipeResult(searchResult){
         var imgElt = $("<img>");
         imgElt.addClass("rounded-circle card-img" + i);
         imgElt.attr("src", searchResult[i].imageURL);
-        divElt.append(imgElt);
         imgElt.attr("href", searchResult[i].URL);
         divElt.append(imgElt);
         var divcardElt = $("<div>");
