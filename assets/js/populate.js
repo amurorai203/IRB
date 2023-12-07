@@ -1,6 +1,7 @@
 var searchRecipeList = [];
 var displaySearchLimit = 5;
 var loadLikedList;
+var displayDatetimeFormat = "D[th] MMMM, YYYY";
 
 
 function displayRecipeResult(searchResult){
@@ -67,6 +68,16 @@ function loadRecipeBook(){
         pElt.addClass("card-text");
         pElt.text(storedLikedRecipes[j].ingredients);
         divCardBodyElt.append(pElt);
+
+        var saveAtElt = $("<h5>");
+        saveAtElt.text("Saved at:");
+        divCardBodyElt.append(saveAtElt);
+
+        var timeElt = $("<h6>");
+        timeElt.addClass("card-time");
+        timeElt.text(dayjs(storedLikedRecipes.datetime).format(displayDatetimeFormat));
+        divCardBodyElt.append(timeElt);
+
         var divButtonElt = $("<div>");
         var buttonElt = $("<button>");
         buttonElt.addClass("btn");
@@ -101,7 +112,7 @@ function invalidateLayout () {
     invalidateLayout();
     loadRecipeBook();
     registerEventListeners(loadLikedList, "L");
-    console.log(loadLikedList);
+    // console.log(loadLikedList);
   }
 
 
