@@ -14,6 +14,8 @@ function displayRecipeResult(searchResult){
         imgElt.addClass("rounded-circle card-img" + i);
         imgElt.attr("src", searchResult[i].imageURL);
         divElt.append(imgElt);
+        imgElt.attr("href", searchResult[i].URL);
+        divElt.append(imgElt);
         var divcardElt = $("<div>");
         divcardElt.addClass("card-img-overlay");
         var h5Elt = $("<h5>");
@@ -29,6 +31,7 @@ function displayRecipeResult(searchResult){
         divcardElt.append(divButtonElt);
         divElt.append(divcardElt);
         searchListContainerElt.append(divElt);
+        
     }
 }
 
