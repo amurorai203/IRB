@@ -150,12 +150,9 @@ function invalidateLayout () {
         var dislikeButton = document.getElementById("dislike" + i);
         if (dislikeButton != null){
           dislikeButton.onclick = () =>  {
-            console.log("Trigger dislike " + i);
             // Dislike logic 
             var dislikeID = event.srcElement.id.substr(7);
-            console.log(dislikeID);
             var storedLikedRecipes = JSON.parse(localStorage.getItem("savedLike"));
-            console.log(storedLikedRecipes[dislikeID]);
             for (var i=0; storedLikedRecipes.length; i++){
               if (storedLikedRecipes[i].id == storedLikedRecipes[dislikeID].id){
                 storedLikedRecipes.splice(i, 1);
