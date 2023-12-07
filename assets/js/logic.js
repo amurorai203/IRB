@@ -108,7 +108,7 @@ function parseRecipes(Recipes) {
     searchResult.push(searchRecipe);
   }
   displayRecipeResult(searchResult);
-  registerEventListeners();
+  registerEventListeners(searchResult, "S");
 }
 
 // Save recipe button to local storage
