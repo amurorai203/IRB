@@ -98,7 +98,6 @@ goBtn.on('click', function () {
   }
   
 
-  console.log(request);
   fetchRecipe(request);
 
 
@@ -108,7 +107,7 @@ goBtn.on('click', function () {
 // parsing recipes into recipe display
 
 function parseRecipes(Recipes) {
-  console.log(Recipes);
+
   var searchResult = [];
 
   for (let i=0; i < Recipes.length; i++) {
@@ -118,14 +117,10 @@ function parseRecipes(Recipes) {
     searchRecipe.title = Recipes[i].title;
     searchRecipe.imageURL = Recipes[i].image;
     searchRecipe.URL = "https://spoonacular.com/" + Recipes[i].title.replace(" ", "-") + "-" + Recipes[i].id;
-    // console.log(searchRecipe.URL);
+
     searchResult.push(searchRecipe);
   }
   displayRecipeResult(searchResult);
   registerEventListeners(searchResult, "S");
 }
-
-// Save recipe button to local storage
-
-// delete button to remove the parent container of recipe card
 

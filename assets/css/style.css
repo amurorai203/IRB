@@ -211,7 +211,7 @@
  
     .recipe-book-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row!important;
     justify-content: center;
     align-items: center;
     border: var(--primary-color) 1px solid;;
